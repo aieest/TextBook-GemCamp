@@ -1,0 +1,10 @@
+<h1>Edit Post id: <%= @feedback.id %></h1>
+<%= form_with model: @feedback do |form| %>
+  <%= form.text_field :name, placeholder: "Name", id: "name", class: "form-input" %>
+
+  <%= form.text_field :email, placeholder: "Email", id: "email", class: "form-input" %>
+
+  <%= form.text_area :message, placeholder: "Message", rows: 4, id: "message", class: "form-input" %>
+  <%= form.submit %>
+<% end %>
+<%= link_to 'CANCEL', feedbacks_path %>

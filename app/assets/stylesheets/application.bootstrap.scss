@@ -1,0 +1,151 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('https://i.pinimg.com/originals/a9/7d/4a/a97d4a695fd6f2c50ec07ac06da2a6da.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav li {
+  margin: 0 30px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition: 0.25s ease-in-out;
+  padding-bottom: 5px;
+}
+
+a:hover {
+  color: #fed691;
+}
+
+#home-header {
+  color: #fed691;
+  font-size: 150px;
+}
+
+#home-p {
+  color: white;
+  font-size: 50px;
+}
+
+/* About Section Styles */
+.about {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.about h1 {
+  color: #fed691;
+  font-size: 60px; /* Decrease the font size of h1 */
+  text-align: center;
+}
+
+.about p {
+  color: white;
+  font-size: 25px; /* Decrease the font size of p */
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Contact Section Styles */
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+h1 {
+  color: #fed691;
+  font-size: 60px; /* Adjusted font size */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vh;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  background: #2e4e8b;
+  color: white;
+}
+
+.form-input:focus {
+  border: none;
+}
+.form-input::placeholder {
+  color: white;
+}
+#name, #email {
+  height: 50px;
+  font-size: 24px; /* Adjusted font size */
+}
+
+#message {
+  height: 200px;
+  font-size: 16px; /* Adjusted font size */
+}
+
+.btn-submit {
+  background-color: #473f88;
+  color: #fff;
+  margin-top: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 18px; /* Adjusted font size */
+  width: 250px;
+}
+
+.btn-submit:hover {
+  background-color: #2e4e8b;
+}

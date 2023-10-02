@@ -1,0 +1,16 @@
+<%= form_with model: post do |form| %>
+  <% if post.errors.any? %>
+    <ul>
+      <% post.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.text_field :title, placeholder: "Title", id: "name", class: "form-input"  %>
+  </div>
+  <div>
+    <%= form.text_area :content, placeholder: "Content", id: "message", class: "form-input"  %>
+  </div>
+  <%= form.submit %>
+<% end %>
