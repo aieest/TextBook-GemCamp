@@ -3,7 +3,7 @@ class FeedbacksController < ApplicationController
     @feedbacks = Feedback.all
   end
 
-  def contact
+  def new
     @feedback = Feedback.new
   end
 

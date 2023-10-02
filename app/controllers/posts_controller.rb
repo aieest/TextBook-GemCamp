@@ -3,7 +3,29 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+
+    if params[:title].present?
+      @posts = @posts.where("title LIKE ?", "%#{params[:title]}%")
+    end
+
+    if params[:start_date].present?
+      @posts = @posts.where("created_at >= ?", Date.parse(params[:start_date]))
+    end
+
+    if params[:end_date].present?
+      @posts = @posts.where("created_at <= ?", Date.parse(params[:end_date]))
+    end
+
+    if params[:published] == "1"
+      @posts = @posts.where(published: true)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
+
 
   def new
     @post = Post.new
@@ -48,6 +70,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :published)
   end
 end

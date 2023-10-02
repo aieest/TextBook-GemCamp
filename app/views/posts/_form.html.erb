@@ -12,5 +12,9 @@
   <div>
     <%= form.text_area :content, placeholder: "Content", id: "message", class: "form-input"  %>
   </div>
+  <div>
+    <%= form.label 'Published' %>
+    <%= form.check_box :published %>
+  </div>
   <%= form.submit %>
 <% end %>
