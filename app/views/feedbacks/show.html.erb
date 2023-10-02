@@ -1,0 +1,7 @@
+<h1>show feedback id: <%= @feedback.id %></h1>
+<ul>
+  <li><%= @feedback.name %></li>
+  <li><%= @feedback.email %></li>
+  <li><%= @feedback.message %></li>
+</ul>
+<%= link_to 'Go Back', feedbacks_path %>

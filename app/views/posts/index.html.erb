@@ -1,0 +1,139 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Add box-sizing for better responsive behavior */
+    }
+
+    h1 {
+        color: #fed691;
+        font-size: 3rem; /* Adjusted font size for responsiveness */
+        text-align: center; /* Center the heading */
+        margin: 20px 0;
+    }
+
+    table {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        overflow: auto;
+    }
+
+    table, thead, td {
+        border: 1px solid;
+        color: #ffff;
+
+    }
+
+    tr {
+        height: fit-content;
+    }
+
+    td {
+        padding: 10px;
+    }
+
+    thead {
+        text-align: center;
+    }
+
+
+    table {
+        margin: auto;
+        width: 70vh;
+        height: 50vh;
+    }
+
+    /* ACTION BUTTONS */
+
+    .action-btns ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .action-btns ul .btn {
+        margin: 5px;
+        width: inherit;
+        text-align: center;
+        width: 50px
+    }
+
+    .action-btns ul li form {
+        width: inherit;
+        background: transparent;
+    }
+
+    .action-btns ul li form button {
+        border: none;
+        border-radius: 50%;
+        background: #473f88;
+        color: white;
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+        transform: rotate(45deg);
+    }
+
+
+</style>
+
+
+<h1>Post List</h1>
+<div class="filter-container">
+  <%= form_with url: posts_path, method: :get do |form| %>
+    <div class="mb-3">
+      <%= form.label :title, class: 'form-label' %>
+      <%= form.text_field :title, value: params[:title], class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :start_date, class: 'form-label' %>
+      <%= form.date_field :start_date, value: params[:start_date], class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :end_date, class: 'form-label' %>
+      <%= form.date_field :end_date, value: params[:end_date], class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :published, class: 'form-label' %>
+      <%= form.check_box :published, value: params[:published], class: 'form-check-input' %>
+    </div>
+
+    <%= form.submit 'Search', class: 'btn btn-sm btn-primary' %>
+
+
+  <% end %>
+  <%= link_to 'NEW POST', new_post_path %>
+</div>
+<table>
+  <thead>
+  <td class="table-head">ID</td>
+  <td class="table-head">TITLE</td>
+  <td class="table-head">CONTENT</td>
+  <td class="table-head">CREATED AT</td>
+  <td class="table-head">UPDATED AT</td>
+  <td class="table-head">STATUS</td>
+  <td class="table-head">ACTION</td>
+  </thead>
+  <% @posts.each do |post| %>
+    <tr>
+      <td class="id"><%= post.id %></td>
+      <td class="title"><%= post.title %></td>
+      <td class="content"><%= post.content %></td>
+      <td class="date"><%= post.created_at %></td>
+      <td class="date"><%= post.updated_at %></td>
+      <td class="status"><%= post.published %></td>
+      <td class="action-btns">
+          <%= link_to 'Show', post_path(post), class: 'btn btn-primary'%>
+          <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-primary'%>
+          <%= button_to '+', post_path(post), method: :delete, class: 'btn btn-primary' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'NEW POST', new_post_path %>

@@ -1,0 +1,24 @@
+<h1>Feedbacks</h1>
+
+<table>
+  <thead>
+  <td>id</td>
+  <td>NAME</td>
+  <td>EMAIL</td>
+  <td>MESSAGE</td>
+  <td>ACTION</td>
+  </thead>
+  <% @feedbacks.each do |feedback| %>
+    <tr>
+      <td><%= feedback.id %></td>
+      <td><%= feedback.name %></td>
+      <td><%= feedback.email %></td>
+      <td><%= feedback.message %></td>
+      <td>
+        <%= link_to 'Show', feedback_path(feedback) %>
+        <%= link_to 'Edit', edit_feedback_path(feedback) %>
+        <%= button_to 'Delete', feedback_path(feedback), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
