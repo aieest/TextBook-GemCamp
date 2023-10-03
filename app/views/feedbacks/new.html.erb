@@ -8,7 +8,7 @@
     </ul>
   <% end %>
 
-    <%= form_with model: @feedback do |form| %>
+  <%= form_with model: @feedback do |form| %>
     <%= form.text_field :name, placeholder: "Name", required: true, id: "name", class: "form-input" %>
 
     <%= form.text_field :email, placeholder: "Email", required: true, id: "email", class: "form-input" %>
@@ -17,5 +17,18 @@
 
     <%= form.submit 'Send Message', class: "btn-submit" %>
   <% end %>
+
+  <div class="form-group">
+    <strong>Remarks:</strong>
+    <br>
+    <% Feedback.remarks.each do |remark| %>
+      <div class="form-check">
+        <%= form.radio_button :remarks, remark[0], class: 'form-check-input' %>
+        <%= form.label "#{remark[0]}", class: 'form-check-label' %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form.submit 'Send Message', class: "btn-submit" %>
 </content>
 
